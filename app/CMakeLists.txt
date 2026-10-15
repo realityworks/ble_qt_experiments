@@ -11,6 +11,7 @@ qt_standard_project_setup(REQUIRES 6.8)
 set(PROJECT_NAME ble_heart_rate_demo_app)
 qt_add_executable(${PROJECT_NAME}
     main.cpp
+        Domain/GlobalDataStore.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}

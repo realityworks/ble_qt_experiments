@@ -5,12 +5,15 @@ set(PROJECT_NAME ble-heart-rate-demo-tests)
 set(TEST_SOURCES
     tst_sample.cpp
     main.cpp
+        ../app/Domain/GlobalDataStore.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(${PROJECT_NAME} ${TEST_SOURCES})
+    qt_add_executable(${PROJECT_NAME} ${TEST_SOURCES}
+            ../app/Domain/GlobalDataStore.h)
 else()
-    add_executable(${PROJECT_NAME} ${TEST_SOURCES})
+    add_executable(${PROJECT_NAME} ${TEST_SOURCES}
+            ../app/Domain/GlobalDataStore.h)
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
