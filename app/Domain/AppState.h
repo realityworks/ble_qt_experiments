@@ -5,13 +5,15 @@
 #ifndef BLE_HEART_RATE_DEMO_APPSTATE_H
 #define BLE_HEART_RATE_DEMO_APPSTATE_H
 
-// TODO: Move this to services
-struct Device {
-
-};
+#include "Service/HeartRateDevice.h"
+#include <QList>
 
 struct AppState {
-    QList<Device> devices;
+    QList<HeartRateDevice> devices;
+    HeartRateDevice* connectDevice;
+    int connectedDeviceBpm = 0;
+
+
     bool scanning = false;
 };
 
