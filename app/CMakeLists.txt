@@ -22,9 +22,10 @@ qt_add_executable(${PROJECT_NAME}
         Presentation/ListView/ListView.h
         Presentation/ListView/ListViewModel.h
         Service/BLE/BleServices.h
-        Service/BLE/HeartRateMeasureCharacteristic.h
-        Service/BLE/BatteryCharacteristic.h
         Service/BLE/CharSpec.h
+        Service/BLE/BleCharacteristics.h
+        Service/BLE/ServiceSpec.h
+        Service/HeartRateDevice.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}

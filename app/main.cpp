@@ -3,6 +3,8 @@
 #include "Domain/GlobalDataStore.h"
 #include "Domain/AppState.h"
 #include "Service/IDeviceService.h"
+#include "Service/HeartRateDevice.h"
+#include "Service/BLE/BleDeviceService.h"
 
 int main(int argc, char *argv[])
 {

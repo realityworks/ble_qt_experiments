@@ -5,8 +5,6 @@
 #ifndef BLE_HEART_RATE_DEMO_IDEVICESERVICE_H
 #define BLE_HEART_RATE_DEMO_IDEVICESERVICE_H
 
-#include "./Service/BLE/CharSpec.h"
-
 struct IDeviceService {
     virtual ~IDeviceService() = default;
 
