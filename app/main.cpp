@@ -1,12 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-
+#include "Domain/GlobalDataStore.h"
+#include "Domain/AppState.h"
+#include "Service/IDeviceService.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
-    
+
 
 
 

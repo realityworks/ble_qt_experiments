@@ -4,7 +4,7 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick Charts)
+find_package(Qt6 REQUIRED COMPONENTS Quick Charts Widgets Bluetooth)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -21,6 +21,10 @@ qt_add_executable(${PROJECT_NAME}
         Presentation/DetailView/DetailViewModel.h
         Presentation/ListView/ListView.h
         Presentation/ListView/ListViewModel.h
+        Service/BLE/BleServices.h
+        Service/BLE/HeartRateMeasureCharacteristic.h
+        Service/BLE/BatteryCharacteristic.h
+        Service/BLE/CharSpec.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}
@@ -45,6 +49,8 @@ target_link_libraries(${PROJECT_NAME}
     PRIVATE
     Qt6::Quick
     Qt6::Charts
+    Qt6::Widgets
+    Qt6::Bluetooth
 )
 
 include(GNUInstallDirs)

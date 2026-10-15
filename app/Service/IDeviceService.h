@@ -5,12 +5,14 @@
 #ifndef BLE_HEART_RATE_DEMO_IDEVICESERVICE_H
 #define BLE_HEART_RATE_DEMO_IDEVICESERVICE_H
 
+#include "./Service/BLE/CharSpec.h"
+
 struct IDeviceService {
     virtual ~IDeviceService() = default;
 
-    virtual findDevices() = 0;
-    virtual connectDevice() = 0;
-    virtual listenToHeartRate() = 0;
+    virtual void findDevices() = 0;
+    virtual void connectDevice() = 0;
+    virtual void listenToHeartRate() = 0;
 
 protected:
 

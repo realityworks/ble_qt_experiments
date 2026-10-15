@@ -10,6 +10,7 @@ set(TEST_SOURCES
         ../app/Domain/DeviceUseCase.h
         ../app/Service/IDeviceService.h
         ../app/Presentation/DetailView/DetailViewModel.h
+        ../app/Service/BLE/BleServices.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -18,14 +19,16 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             ../app/Domain/AppState.h
             ../app/Domain/DeviceUseCase.h
             ../app/Service/IDeviceService.h
-            ../app/Presentation/DetailView/DetailViewModel.h)
+            ../app/Presentation/DetailView/DetailViewModel.h
+            ../app/Service/BLE/BleServices.h)
 else()
     add_executable(${PROJECT_NAME} ${TEST_SOURCES}
             ../app/Domain/GlobalDataStore.h
             ../app/Domain/AppState.h
             ../app/Domain/DeviceUseCase.h
             ../app/Service/IDeviceService.h
-            ../app/Presentation/DetailView/DetailViewModel.h)
+            ../app/Presentation/DetailView/DetailViewModel.h
+            ../app/Service/BLE/BleServices.h)
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

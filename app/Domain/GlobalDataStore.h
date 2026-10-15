@@ -12,7 +12,7 @@ class GlobalDataStore : public QObject {
 public:
     explicit GlobalDataStore(QObject *parent = nullptr)
     : QObject(parent) {
-        qRegisterMetaType<StatePtr>();
+        //qRegisterMetaType<GlobalDataStorePtr>();
     }
 
     void update() {
@@ -26,6 +26,6 @@ private:
     void apply() {
 
     }
-}
+};
 
 #endif //BLE_HEART_RATE_DEMO_GLOBALDATASTORE_H
