@@ -7,6 +7,7 @@
 
 #include <QObject>
 #include <QMutex>
+#include <QThread>
 #include "AppState.h"
 #include <functional>
 #include <memory>
@@ -27,10 +28,13 @@ public:
 
     void update(std::function<void(AppState &)> value) {
         if (QThread::currentThread() == thread()) {
-            apply(mutation);
+            apply(value);
         } else {
             QMetaObject::invokeMethod(
-                this, [this, m = std::move(mutation)] { apply(m); }, Qt::QueuedConnection);
+                this,
+                [this, m = std::move(value)] { apply(m); },
+                Qt::QueuedConnection
+            );
         }
     }
 
