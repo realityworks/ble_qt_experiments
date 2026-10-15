@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/bleheartratedemo/">
+    <file alias="qml/qmldir">/Users/piotrsuwara/Downloads/ble-heart-rate-demo-main/app/build/Qt_6_12_0_for_macOS_Debug/bleheartratedemo/qml/qmldir</file>
+  </qresource>
+</RCC>
+

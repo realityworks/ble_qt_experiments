@@ -1,0 +1,167 @@
+<macro name="Notify heart rate" icon="UP">
+   <assert-server-service description="Ensure Heart Rate Service" uuid="0000180e-0000-1000-8000-00805f9b34fb">
+      <assert-characteristic description="Ensure Heart Rate Measurement" uuid="00002a36-0000-1000-8000-00805f9b34fb">
+         <property name="NOTIFY" requirement="MANDATORY"/>
+      </assert-characteristic>
+   </assert-server-service>
+   <send-notification description="Notify heart rate 80bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0050"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 80bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0050"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 80bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0050"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 81bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0051"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 81bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0051"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 82bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0052"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 82bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0052"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 83bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0053"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 84bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0054"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 85bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0055"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 86bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0056"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 87bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0057"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 88bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0058"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 90bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005A"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 91bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005B"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 92bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005C"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 94bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005E"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 95bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005F"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 97bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0061"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 98bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0062"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 100bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0064"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 102bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0066"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 103bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0067"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 105bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0069"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 106bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006A"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 108bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006C"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 109bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006D"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 110bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006E"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 112bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0070"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 113bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0071"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 114bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0072"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 115bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0073"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 116bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0074"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 117bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0075"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 118bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0076"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 118bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0076"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 119bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0077"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 119bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0077"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 120bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0078"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 120bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0078"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 120bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0078"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 120bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0078"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 120bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0078"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 119bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0077"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 119bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0077"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 118bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0076"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 118bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0076"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 117bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0075"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 116bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0074"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 115bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0073"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 114bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0072"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 113bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0071"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 112bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0070"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 110bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006E"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 109bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006D"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 108bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006C"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 106bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="006A"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 105bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0069"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 103bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0067"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 102bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0066"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 100bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0064"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 98bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0062"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 97bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0061"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 95bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005F"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 94bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005E"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 92bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005C"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 91bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005B"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 90bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="005A"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 88bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0058"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 87bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0057"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 86bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0056"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 85bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0055"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 84bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0054"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 83bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0053"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 82bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0052"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 82bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0052"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 81bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0051"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 81bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0051"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 80bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0050"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+   <send-notification description="Notify heart rate 80bpm" characteristic-uuid="00002a36-0000-1000-8000-00805f9b34fb" service-uuid="0000180e-0000-1000-8000-00805f9b34fb" value="0050"/>
+   <sleep description="Sleep 100ms" timeout="100"/>
+</macro>

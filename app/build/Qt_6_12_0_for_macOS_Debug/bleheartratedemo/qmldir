@@ -1,0 +1,6 @@
+module bleheartratedemo
+typeinfo ble_heart_rate_demo_app.qmltypes
+prefer :/qt/qml/bleheartratedemo/
+Main 1.0 qml/Main.qml
+depends QtQuick
+

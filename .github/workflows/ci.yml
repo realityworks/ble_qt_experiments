@@ -1,0 +1,88 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Install Dependencies
+        run: |
+          sudo apt update
+          sudo apt install ninja-build build-essential -y
+
+      - name: Set up Python 3.13 for gcovr
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13
+
+      - name: install gcovr
+        run: |
+          pip install gcovr
+
+      - name: Install sonar-scanner and build-wrapper
+        uses: SonarSource/sonarqube-scan-action/install-build-wrapper@v5
+
+      - name: Install Qt6
+        uses: jdpurcell/install-qt-action@v5
+        with:
+          version: 6.8.3
+          modules: 'qtconnectivity qtcharts'
+          cache: 'true'
+          set-env: 'true'
+
+      - name: Configure CMake
+        run: |
+          # TODO: Configure the project with CMake
+      
+      - name: Build
+        run: |
+          build-wrapper-linux-x86-64 \
+          --out-dir build_wrapper_output_directory \
+          # TODO: Build the project with CMake
+
+
+      - name: Run Unit Tests
+        run: |
+          # TODO: Run your tests and generate test-results.xml
+
+      - name: Publish test results
+        uses: dorny/test-reporter@1a288b62f8b75c0f433cbfdbc2e4800fbae50bd7
+        if: success() || failure()
+        with:
+          name: Test results
+          path: '**/test-results.xml'
+          reporter: java-junit
+          use-actions-summary: 'true'
+
+      - name: Collect coverage into one XML report
+        run: |
+          gcovr --sonarqube \
+          --gcov-ignore-errors=no_working_dir_found \
+          --exclude-unreachable-branches \
+          --exclude-throw-branches \
+          > coverage.xml
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARCLOUD_AUTH }}
+          SONAR_HOST_URL: https://sonarcloud.io
+        with:
+          args: >
+            --define sonar.cfamily.compile-commands=build_wrapper_output_directory/compile_commands.json
+            --define sonar.coverageReportPaths=coverage.xml
+            --define project.settings=sonar-project.properties
+

@@ -1,0 +1,18 @@
+<server-configuration name="VitalTrace Test">
+   <service name="Heart Rate" uuid="0000180D-0000-1000-8000-00805F9B34FB">
+      <characteristic name="Heart Rate Measurement" uuid="00002A37-0000-1000-8000-00805F9B34FB">
+         <descriptor configure="CCCD"/>
+         <permission name="READ"/>
+         <property name="READ"/>
+         <property name="NOTIFY"/>
+      </characteristic>
+   </service>
+   <service name="Battery" uuid="0000180F-0000-1000-8000-00805F9B34FB">
+      <characteristic name="Battery Level" uuid="00002A19-0000-1000-8000-00805F9B34FB">
+         <descriptor configure="CCCD"/>
+         <permission name="READ"/>
+         <property name="READ"/>
+         <property name="NOTIFY"/>
+      </characteristic>
+   </service>
+</server-configuration>

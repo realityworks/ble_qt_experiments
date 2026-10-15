@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/bleheartratedemo/">
+    <file alias="qml/Main.qml">/Users/piotrsuwara/Downloads/ble-heart-rate-demo-main/app/qml/Main.qml</file>
+  </qresource>
+</RCC>
+
