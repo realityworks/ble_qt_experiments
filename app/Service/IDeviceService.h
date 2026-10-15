@@ -13,6 +13,8 @@
 #include "HeartRateDevice.h"
 
 struct IDeviceService {
+    using Subscription = std::shared_ptr<void>;
+
     virtual ~IDeviceService() = default;
 
     // Scan for and list the devices which match our requirements
