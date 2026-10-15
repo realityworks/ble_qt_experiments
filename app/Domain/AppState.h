@@ -5,7 +5,7 @@
 #ifndef BLE_HEART_RATE_DEMO_APPSTATE_H
 #define BLE_HEART_RATE_DEMO_APPSTATE_H
 
-#include "Service/HeartRateDevice.h"
+#include "../Service/HeartRateDevice.h"
 #include <QList>
 #include <QUuid>
 #include <memory>
