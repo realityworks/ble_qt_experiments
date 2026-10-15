@@ -5,6 +5,8 @@
 #ifndef BLE_HEART_RATE_DEMO_HEARTRATEDEVICE_H
 #define BLE_HEART_RATE_DEMO_HEARTRATEDEVICE_H
 
+#include <QUuid>
+#include "ConnectionState.h"
 
 struct HeartRateDevice {
     QUuid id;                   // Device UUID

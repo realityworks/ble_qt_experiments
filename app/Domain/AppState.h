@@ -7,13 +7,13 @@
 
 #include "Service/HeartRateDevice.h"
 #include <QList>
+#include <QUuid>
 
 struct AppState {
     QList<HeartRateDevice> devices;
-    HeartRateDevice* connectDevice;
+    std::optional<QUuid> connectedDevice;
+
     int connectedDeviceBpm = 0;
-
-
     bool scanning = false;
 };
 

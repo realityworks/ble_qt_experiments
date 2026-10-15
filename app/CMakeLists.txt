@@ -26,7 +26,7 @@ qt_add_executable(${PROJECT_NAME}
         Service/BLE/BleCharacteristics.h
         Service/BLE/ServiceSpec.h
         Service/HeartRateDevice.h
-        Domain/ConnectionState.h
+        Service/ConnectionState.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}
