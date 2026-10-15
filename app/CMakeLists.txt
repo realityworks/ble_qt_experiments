@@ -30,6 +30,7 @@ qt_add_executable(${PROJECT_NAME}
         Service/DeviceServiceFactory.h
         ../test/tst_deviceservice.cpp
         ../test/tst_store.cpp
+        Utilities/ConcurrencyHelpers.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}

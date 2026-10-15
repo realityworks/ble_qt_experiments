@@ -6,11 +6,12 @@
 #define BLE_HEART_RATE_DEMO_HEARTRATEDEVICE_H
 
 #include <QUuid>
+#include <QString>
 #include "ConnectionState.h"
 
 struct HeartRateDevice {
     QUuid id;                   // Device UUID
-    QUuid name;                 // Device name
+    QString name = QString("");                 // Device name
     int bpm = 0;
     int batteryLevel = 0;
     ConnectionState state = ConnectionState::Disconnected;
