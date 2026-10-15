@@ -8,7 +8,10 @@
 
 
 struct ServiceSpec {
-    QB
+    QBluetoothUuid uuid;
+    QList<CharacteristicSpec> characteristics;
+
+    // TODO: Implement once MOCK done
 };
 
 #endif //BLE_HEART_RATE_DEMO_SERVICESPEC_H
