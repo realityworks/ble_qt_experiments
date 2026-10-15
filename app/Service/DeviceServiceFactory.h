@@ -12,25 +12,24 @@
 #include <QStringList>
 #include <memory>
 
-enum class DeviceBackend { Mock, Bluetooth };
+enum class DeviceServiceType { Mock, Bluetooth };
 
 // The one place that knows the concrete service types.
-inline std::shared_ptr<IDeviceService> makeDeviceService(DeviceBackend backend)
+inline std::shared_ptr<IDeviceService> makeDeviceService(DeviceServiceType backend)
 {
     switch (backend) {
-        case DeviceBackend::Mock:
+        case DeviceServiceType::Mock:
             //return std::make_shared<MockDeviceService>();
             qFatal("Not implemented");
-        case DeviceBackend::Bluetooth:
+        case DeviceServiceType::Bluetooth:
             // return std::make_shared<BleDeviceService>();   // add once the QtBluetooth implementation exists
             qFatal("Not implemented");
     }
     return nullptr;
 }
 
-inline BleBackend backendFromArguments(const QStringList &args) {
-    return args.contains(QLatin1String("bluetooth")) ? DeviceBackend::Bluetooth
-                                                           : DeviceBackend::Mock;
+inline DeviceServiceType serviceFromArguments(const QStringList &args) {
+    return args.contains(QLatin1String("bluetooth")) ? DeviceServiceType::Bluetooth : DeviceServiceType::Mock;
 }
 
 #endif //BLE_HEART_RATE_DEMO_DEVICESERVICEFACTORY_H
