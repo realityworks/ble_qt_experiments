@@ -12,6 +12,15 @@ set(PROJECT_NAME ble_heart_rate_demo_app)
 qt_add_executable(${PROJECT_NAME}
     main.cpp
         Domain/GlobalDataStore.h
+        Domain/AppState.h
+        Domain/DeviceUseCase.h
+        Service/IDeviceService.h
+        Service/BLE/BleDeviceService.h
+        Service/MOCK/MockDeviceService.h
+        Presentation/DetailView/DetailView.h
+        Presentation/DetailView/DetailViewModel.h
+        Presentation/ListView/ListView.h
+        Presentation/ListView/ListViewModel.h
 )
 
 qt_add_qml_module(${PROJECT_NAME}

@@ -6,14 +6,26 @@ set(TEST_SOURCES
     tst_sample.cpp
     main.cpp
         ../app/Domain/GlobalDataStore.h
+        ../app/Domain/AppState.h
+        ../app/Domain/DeviceUseCase.h
+        ../app/Service/IDeviceService.h
+        ../app/Presentation/DetailView/DetailViewModel.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(${PROJECT_NAME} ${TEST_SOURCES}
-            ../app/Domain/GlobalDataStore.h)
+            ../app/Domain/GlobalDataStore.h
+            ../app/Domain/AppState.h
+            ../app/Domain/DeviceUseCase.h
+            ../app/Service/IDeviceService.h
+            ../app/Presentation/DetailView/DetailViewModel.h)
 else()
     add_executable(${PROJECT_NAME} ${TEST_SOURCES}
-            ../app/Domain/GlobalDataStore.h)
+            ../app/Domain/GlobalDataStore.h
+            ../app/Domain/AppState.h
+            ../app/Domain/DeviceUseCase.h
+            ../app/Service/IDeviceService.h
+            ../app/Presentation/DetailView/DetailViewModel.h)
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
