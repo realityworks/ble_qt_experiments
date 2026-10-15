@@ -8,6 +8,7 @@
 #include "Service/HeartRateDevice.h"
 #include <QList>
 #include <QUuid>
+#include <memory>
 
 struct AppState {
     QList<HeartRateDevice> devices;
@@ -17,6 +18,7 @@ struct AppState {
     bool scanning = false;
 };
 
-
+using AppStatePtr = std::shared_ptr<const AppState>;
+Q_DECLARE_METATYPE(AppStatePtr);
 
 #endif //BLE_HEART_RATE_DEMO_APPSTATE_H

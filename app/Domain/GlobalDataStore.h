@@ -6,14 +6,20 @@
 #define BLE_HEART_RATE_DEMO_GLOBALDATASTORE_H
 
 #include <QObject>
+#include "AppState.h"
+#include <functional>
+#include <memory>
+#include <type_traits>
 
 class GlobalDataStore : public QObject {
     Q_OBJECT
 public:
     explicit GlobalDataStore(QObject *parent = nullptr)
-    : QObject(parent) {
-        //qRegisterMetaType<GlobalDataStorePtr>();
+    : QObject(parent), m_state(std::make_shared<const AppState>()) {
+        qRegisterMetaType<AppStatePtr>();
     }
+
+
 
     void update() {
 
@@ -23,9 +29,10 @@ public:
 //signals:
 
 private:
-    void apply() {
+    void apply(const std::function<void(AppState &)> &mutation) {
 
     }
+    AppStatePtr m_state;
 };
 
 #endif //BLE_HEART_RATE_DEMO_GLOBALDATASTORE_H

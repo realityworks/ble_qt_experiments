@@ -14,7 +14,7 @@ struct HeartRateDevice {
     int bpm = 0;
     int batteryLevel = 0;
     ConnectionState state = ConnectionState::Disconnected;
-    bool operator==(const Device &) const = default;
+    bool operator==(const HeartRateDevice &) const = default;
 };
 
 #endif //BLE_HEART_RATE_DEMO_HEARTRATEDEVICE_H
