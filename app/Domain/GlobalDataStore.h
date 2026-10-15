@@ -6,6 +6,7 @@
 #define BLE_HEART_RATE_DEMO_GLOBALDATASTORE_H
 
 #include <QObject>
+#include <QMutex>
 #include "AppState.h"
 #include <functional>
 #include <memory>
@@ -25,8 +26,12 @@ public:
     }
 
     void update(std::function<void(AppState &)> value) {
-        // TODO: Make this thread safe
-        apply(value);
+        if (QThread::currentThread() == thread()) {
+            apply(mutation);
+        } else {
+            QMetaObject::invokeMethod(
+                this, [this, m = std::move(mutation)] { apply(m); }, Qt::QueuedConnection);
+        }
     }
 
     // Setup some type of connector to observe data
@@ -58,10 +63,25 @@ signals:
     void changed(AppStatePtr state_ptr);
 
 private:
-    void apply(const std::function<void(AppState &)> &mutation) {
+    void apply(const std::function<void(AppState &)> &changed_value) {
+        // Threadsafe Block to apply the published state to our current state
+        AppStatePtr published_state;
+        {
+            QMutexLocker lock(&m_mutex);
+            auto next_value = std::make_shared<AppState>(*m_state);
 
+            // Temporary copy of our state
+            changed_value(*next_value);
+
+            published_state = std::move(next_value);
+
+            m_state = published_state;
+        }
+        emit changed(published_state);
     }
+
     AppStatePtr m_state;
+    mutable QMutex m_mutex;
 };
 
 #endif //BLE_HEART_RATE_DEMO_GLOBALDATASTORE_H
