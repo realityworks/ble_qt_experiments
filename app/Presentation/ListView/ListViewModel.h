@@ -18,6 +18,10 @@ public:
     )
         : QObject(parent), m_useCase(useCase)
     {
+        m_items = QStringList {
+            "Test1",
+            "Test2",
+        };
         //m_scanning = useCase.isScanning();
         // useCase.observeDevices(this, [this](const QList<Device> &d) { m_model->setDevices(d); });
         // useCase.observeScanning(this, [this](bool v) {
@@ -26,6 +30,7 @@ public:
         // });
     }
 
+    QStringList devices() const { return m_items; }
     // bool scanning() const { return m_scanning; }
     //
     // Q_INVOKABLE void scan() { m_useCase.scan(); }
@@ -42,6 +47,7 @@ public:
 
 private:
     DeviceUseCase &m_useCase;
+    QStringList m_items;
     bool m_scanning = false;
 };
 

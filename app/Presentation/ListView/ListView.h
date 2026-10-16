@@ -11,6 +11,8 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QStringListModel>
+#include <QStringList>
 #include "ListViewModel.h"
 
 class ListView : public QWidget {
@@ -23,9 +25,11 @@ public:
         : QWidget(parent), m_viewModel(viewModel)
     {
         m_scanButton = new QPushButton;
+
+        QStringListModel* model = new QStringListModel(viewModel.devices(), this);
         m_list = new QListView;
-        //m_list->setModel(viewModel.model());
-        //m_list->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        m_list->setModel(model);
+        m_list->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         auto *top = new QHBoxLayout;
         top->addWidget(new QLabel(tr("Heart rate devices")));
