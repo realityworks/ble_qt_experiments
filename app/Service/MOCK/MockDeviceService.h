@@ -21,7 +21,7 @@ class MockDeviceService : public IDeviceService {
 public:
     explicit MockDeviceService(
         QList<HeartRateDevice> devices = defaultDevices(),
-        int scanDelayMs = 5000,
+        int scanDelayMs = 1000,
         int connectDelayMs = 1500,
         int indicationIntervalMs = 1000
     )
@@ -30,11 +30,32 @@ public:
     }
 
     QFuture<QList<HeartRateDevice>> findDevices(const QUuid &) override {
-        return after<QList<HeartRateDevice>>(m_scanDelayMs, [this] { return QList<HeartRateDevice>(); });
+        return after<QList<HeartRateDevice>>(
+            m_scanDelayMs,
+            [this] {
+                return m_devices;
+            }
+        );
     }
 
-    QFuture<HeartRateDevice> connectDevice(const QUuid& deviceId) override {
-        return after<HeartRateDevice>(m_connectDelayMs, [this] { return HeartRateDevice(); });
+    QFuture<std::optional<HeartRateDevice>> connectDevice(const QUuid& deviceId) override {
+        return after<std::optional<HeartRateDevice>>(
+            m_connectDelayMs,
+            [this, deviceId] -> std::optional<HeartRateDevice> {
+                auto it = std::find_if(
+                    m_devices.begin(),
+                    m_devices.end(),
+                    [&deviceId](const HeartRateDevice& checkDevice) {
+                        return checkDevice.id == deviceId; // Your predicate condition
+                    }
+                );
+                if (it != m_devices.end()) {
+                    m_connected.insert((*it).id);
+                    return *it;
+                }
+                return std::nullopt;
+            }
+        );
     }
 
     bool disconnectDevice(const QUuid& deviceId) override {

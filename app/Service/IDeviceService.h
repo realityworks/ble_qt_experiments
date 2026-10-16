@@ -21,7 +21,7 @@ struct IDeviceService {
     virtual QFuture<QList<HeartRateDevice>> findDevices(const QUuid &serviceUuid) = 0;
 
     // Connect the device completely and get
-    virtual QFuture<HeartRateDevice> connectDevice(const QUuid &deviceId) = 0;
+    virtual QFuture<std::optional<HeartRateDevice>> connectDevice(const QUuid &deviceId) = 0;
 
     virtual bool disconnectDevice(const QUuid &deviceId) = 0;
 
