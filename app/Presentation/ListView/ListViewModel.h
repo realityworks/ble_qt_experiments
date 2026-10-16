@@ -42,7 +42,7 @@ public:
 signals:
     void scanningChanged();
     void devicesFound();
-    //void deviceConnected(const QUuid &id);
+    void deviceSelected(const QUuid &id);
 
 private:
     void connectToUseCase() {
