@@ -26,9 +26,8 @@ public:
     {
         m_scanButton = new QPushButton;
 
-        QStringListModel* model = new QStringListModel(viewModel.devices(), this);
         m_list = new QListView;
-        m_list->setModel(model);
+        //m_list->setModel(model);
         m_list->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         auto *top = new QHBoxLayout;
@@ -41,9 +40,15 @@ public:
         root->addWidget(m_list);
 
         // View -> view model
-        // connect(m_scanButton, &QPushButton::clicked, &m_vm, &DeviceListViewModel::scan);
-        // connect(m_list, &QListView::activated, this,
-        //         [this](const QModelIndex &i) { m_vm.select(i.row()); });
+        connectBindings();
+
+        connect(
+            m_list,
+            &QListView::activated,
+            this,
+            [this](const QModelIndex &i){
+                //m_vm.select(i.row());
+            });
         //
         // // View model -> view
         // connect(&m_vm, &DeviceListViewModel::scanningChanged, this, &DeviceListView::syncScanning);
@@ -51,8 +56,17 @@ public:
     }
 
 private:
+    void connectBindings() {
+        connect(
+            m_scanButton,
+            &QPushButton::clicked,
+            &m_viewModel
+            &ListViewModel::scan
+        );
+    }
+
     void syncScanning() {
-        // m_scanButton->setEnabled(!m_vm.scanning());
+        m_scanButton->setEnabled(!m_viewModel.scanning());
         // m_scanButton->setText(m_vm.scanning() ? tr("Scanning…") : tr("Scan"));
     }
 

@@ -23,6 +23,7 @@ set(TEST_SOURCES
         ../app/Service/DeviceServiceFactory.h
         tst_deviceservice.cpp
         tst_store.cpp
+        ../app/Domain/AppStateHelpers.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -45,7 +46,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             ../app/Service/ConnectionState.h
             ../app/Service/DeviceServiceFactory.h
             tst_deviceservice.cpp
-            tst_store.cpp)
+            tst_store.cpp
+            ../app/Domain/AppStateHelpers.h)
 else()
     add_executable(${PROJECT_NAME} ${TEST_SOURCES}
             ../app/Domain/GlobalDataStore.h
@@ -66,7 +68,8 @@ else()
             ../app/Service/ConnectionState.h
             ../app/Service/DeviceServiceFactory.h
             tst_deviceservice.cpp
-            tst_store.cpp)
+            tst_store.cpp
+            ../app/Domain/AppStateHelpers.h)
 endif()
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

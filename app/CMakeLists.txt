@@ -29,13 +29,7 @@ qt_add_executable(${PROJECT_NAME}
         Service/ConnectionState.h
         Service/DeviceServiceFactory.h
         Utilities/ConcurrencyHelpers.h
-)
-
-qt_add_qml_module(${PROJECT_NAME}
-    URI bleheartratedemo
-    VERSION 1.0
-    QML_FILES
-        qml/Main.qml
+        Domain/AppStateHelpers.h
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

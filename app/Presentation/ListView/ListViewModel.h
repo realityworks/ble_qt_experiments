@@ -6,6 +6,7 @@
 #define BLE_HEART_RATE_DEMO_LISTVIEWMODEL_H
 
 #include <QObject>
+#include <QStringList>
 #include "../../Domain/DeviceUseCase.h"
 
 class ListViewModel : public QObject {
@@ -22,6 +23,7 @@ public:
             "Test1",
             "Test2",
         };
+
         //m_scanning = useCase.isScanning();
         // useCase.observeDevices(this, [this](const QList<Device> &d) { m_model->setDevices(d); });
         // useCase.observeScanning(this, [this](bool v) {
@@ -31,15 +33,14 @@ public:
     }
 
     QStringList devices() const { return m_items; }
-    // bool scanning() const { return m_scanning; }
-    //
-    // Q_INVOKABLE void scan() { m_useCase.scan(); }
-    //
-    // Q_INVOKABLE void select(int row)
-    // {
-    //     const QUuid id = m_model->idAt(row);
-    //     if (!id.isNull()) emit deviceActivated(id);   // navigation intent
-    // }
+    bool scanning() const { return m_scanning; }
+
+    // View model functions
+    Q_INVOKABLE void scan() { m_useCase.scan(); }
+
+    Q_INVOKABLE void select() {
+        // TODO: Need to update model to be a device list first maybe
+    }
 
     // signals:
     //     void scanningChanged();

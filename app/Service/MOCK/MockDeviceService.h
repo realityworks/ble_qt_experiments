@@ -59,11 +59,24 @@ public:
     }
 
     bool disconnectDevice(const QUuid& deviceId) override {
+        auto it = std::find_if(
+            m_devices.begin(),
+            m_devices.end(),
+            [&deviceId](const HeartRateDevice& checkDevice) {
+                return checkDevice.id == deviceId; // Your predicate condition
+            }
+        );
 
+        if (it != m_devices.end()) {
+            m_connected.remove((*it).id);
+        }
     }
 
-    Subscription heartRateConnect(const QUuid& deviceId, std::function<void(int)> sink) override {
-
+    Subscription heartRateConnect(
+        const QUuid& deviceId,
+        std::function<void(int)> sink
+    ) override {
+        // TODO: Just do an update with sleeps
     }
 
     static QList<HeartRateDevice> defaultDevices() {
