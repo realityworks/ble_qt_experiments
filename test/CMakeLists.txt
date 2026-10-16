@@ -1,5 +1,5 @@
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick Charts Widgets Bluetooth)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick Charts Widgets Bluetooth)
 set(PROJECT_NAME ble-heart-rate-demo-tests)
 
 set(TEST_SOURCES
@@ -75,6 +75,10 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
     Qt${QT_VERSION_MAJOR}::Core
+    Qt${QT_VERSION_MAJOR}::Quick
+    Qt${QT_VERSION_MAJOR}::Charts
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::Bluetooth
     GTest::gtest
     GTest::gmock
 )

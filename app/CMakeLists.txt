@@ -28,8 +28,6 @@ qt_add_executable(${PROJECT_NAME}
         Service/HeartRateDevice.h
         Service/ConnectionState.h
         Service/DeviceServiceFactory.h
-        ../test/tst_deviceservice.cpp
-        ../test/tst_store.cpp
         Utilities/ConcurrencyHelpers.h
 )
 

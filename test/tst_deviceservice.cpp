@@ -58,8 +58,8 @@ TEST_F(TestDeviceService, TestConnectDevice) {
     // Given
     QUuid connectId = QUuid::createUuid();
     QList<HeartRateDevice> localList = QList<HeartRateDevice>({
-            HeartRateDevice(connectId, "TestDevice", 80, 10),
-            HeartRateDevice(QUuid::createUuid(), "TestDevice", 80, 10),
+            HeartRateDevice(connectId, "TestDevice_1", 80, 10),
+            HeartRateDevice(QUuid::createUuid(), "TestDevice_2", 23, 10),
         });
 
     deviceService = std::make_unique<MockDeviceService>(
