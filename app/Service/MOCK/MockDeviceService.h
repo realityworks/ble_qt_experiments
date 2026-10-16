@@ -81,9 +81,9 @@ public:
 
     static QList<HeartRateDevice> defaultDevices() {
         return {
-            makeDevice("11111111-1111-1111-1111-111111111111", "Polar H10"),
-            makeDevice("22222222-2222-2222-2222-222222222222", "Wahoo TICKR"),
-            makeDevice("33333333-3333-3333-3333-333333333333", "Garmin HRM-Pro"),
+            makeDevice("11111111-1111-1111-1111-111111111111", "DEVICE 001"),
+            makeDevice("22222222-2222-2222-2222-222222222222", "DEVICE 002"),
+            makeDevice("33333333-3333-3333-3333-333333333333", "DEVICE 003"),
         };
     }
 

@@ -53,8 +53,7 @@ public:
     QList<HeartRateDevice> devices() const { return m_store.currentState()->devices; }
     bool isScanning() const { return m_store.currentState()->scanning; }
 
-    void scan()
-    {
+    void scan() {
         if (isScanning()) return;
             setScanning(true);
 
@@ -62,9 +61,9 @@ public:
         m_deviceService->findDevices(QUuid()).then(
             this,
             [this](const QList<HeartRateDevice> &found) {
-                m_store.update([found](AppState &s) {
-                    mergeDevices(s, found);
-                    s.scanning = false;
+                m_store.update([found](AppState &state) {
+                    mergeDevices(state, found);
+                    state.scanning = false;
                 });
             }
         );
@@ -86,6 +85,27 @@ public:
             },
             handler
         );
+    }
+
+    void connectDevice(const QUuid &id) {
+
+        m_deviceService->connectDevice(id).then(
+            this,
+            [this](std::optional<HeartRateDevice> connectedDevice) {
+                m_store.update([connectedDevice](AppState &state) {
+                    if (connectedDevice == std::nullopt)
+                        return
+
+                    state.connectedDevice = connectedDevice.value().id;
+                    state.scanning = false;
+                });
+            }
+        );
+    }
+
+    void disconnectDevice(const QUuid &id) {
+        m_subscriptions.remove(id); // dropping the subscription stops indications
+        resetDevice(id);
     }
 
 private:
@@ -129,11 +149,6 @@ private:
                     updateFunction(*device);
             }
         );
-    }
-
-    void disconnectDevice(const QUuid &id) {
-        m_subscriptions.remove(id); // dropping the subscription stops indications
-        resetDevice(id);
     }
 
     GlobalDataStore &m_store;
