@@ -57,31 +57,17 @@ private:
     ConnectionState m_state = ConnectionState::Disconnected;
 
     void connectBindings() {
-        m_useCase.observeDeviceField(
-            m_id,
-            &HeartRateDevice::name,
+        m_useCase.observeBpm(
             this,
-            [this](const QString &v){
-                m_name = v;
-                emit nameChanged();
-            }
-        );
-
-        m_useCase.observeDeviceField(
-            m_id,
-            &HeartRateDevice::bpm,
-            this,
-            [this](int v){
-                m_bpm = v;
+            [this](int bpm){
+                m_bpm = bpm;
                 emit bpmChanged();
             });
 
-        m_useCase.observeDeviceField(
-            m_id,
-            &HeartRateDevice::state,
+        m_useCase.observeConnectionState(
             this,
-            [this](ConnectionState v){
-                m_state = v;
+            [this](ConnectionState connectionState){
+                m_state = connectionState;
                 emit stateChanged();
             }
         );

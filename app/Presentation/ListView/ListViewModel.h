@@ -35,8 +35,11 @@ public:
         m_useCase.scan();
     }
 
-    Q_INVOKABLE void select() {
+    Q_INVOKABLE void select(const QModelIndex &index) {
         // TODO: Need to update model to be a device list first maybe
+        //emit deviceSelected(m_items[index].uuid);
+        QUuid selectedUUID = QUuid("11111111-1111-1111-1111-111111111111");
+        emit deviceSelected(selectedUUID);
     }
 
 signals:
@@ -55,6 +58,9 @@ private:
                 deviceNames.append(device.name);
             }
 
+            // TODO: Configure with more complex model
+            //configureListView(devices);
+
             m_items = deviceNames;
             emit devicesFound();
         });
@@ -70,3 +76,26 @@ private:
 };
 
 #endif //BLE_HEART_RATE_DEMO_LISTVIEWMODEL_H
+
+// Configure list view sample code
+// enum { SubtitleRole = Qt::UserRole + 1 };
+//
+// auto *view  = new QListView;
+// auto *model = new QStandardItemModel(view);
+// view->setModel(model);
+//
+// auto add = [&](const QString &title, const QString &subtitle) {
+//     auto *item = new QStandardItem(title + "\n" + subtitle);  // what's displayed
+//     item->setData(title, Qt::UserRole);                       // optional: raw title
+//     item->setData(subtitle, SubtitleRole);                    // raw subtitle
+//     model->appendRow(item);
+// };
+//
+// add("First item",  "This is the first subtitle");
+// add("Second item", "Another descriptive line");
+//
+// QObject::connect(view, &QListView::activated, view, [](const QModelIndex &index) {
+//     QString subtitle = index.data(SubtitleRole).toString();
+//     QString title    = index.data(Qt::UserRole).toString();
+//     qDebug() << title << subtitle;
+// });

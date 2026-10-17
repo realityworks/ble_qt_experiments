@@ -13,6 +13,7 @@
 #include <memory>
 #include <type_traits>
 
+// TODO: Better rename this GlobalConnector
 class GlobalDataStore : public QObject {
     Q_OBJECT
 public:

@@ -15,6 +15,8 @@ struct AppState {
     std::optional<QUuid> connectedDevice;
 
     int connectedDeviceBpm = 0;
+    ConnectionState connectionState = ConnectionState::Disconnected;
+    QString connectedDeviceName = "";
     bool scanning = false;
 };
 

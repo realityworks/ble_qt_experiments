@@ -49,6 +49,7 @@ public:
                         return checkDevice.id == deviceId; // Your predicate condition
                     }
                 );
+                it->state = ConnectionState::Connected;
                 if (it != m_devices.end()) {
                     m_connected.insert((*it).id);
                     return *it;
@@ -67,6 +68,7 @@ public:
             }
         );
 
+        it->state = ConnectionState::Disconnected;
         if (it != m_devices.end()) {
             m_connected.remove((*it).id);
         }
@@ -77,6 +79,19 @@ public:
         std::function<void(int)> sink
     ) override {
         // TODO: Just do an update with sleeps
+        Q_UNUSED(deviceId);
+        std::shared_ptr<QTimer> timer = std::make_shared<QTimer>();
+        timer->setInterval(1000);
+        QObject::connect(
+            timer.get(),
+            &QTimer::timeout,
+            timer.get(),
+            [sink = std::move(sink)] {
+                sink(QRandomGenerator::global()->bounded(80, 121));
+            }
+        );
+        timer->start();
+        return timer;
     }
 
     static QList<HeartRateDevice> defaultDevices() {

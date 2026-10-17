@@ -56,10 +56,8 @@ private:
         connect(
             m_list,
             &QListView::activated,
-            this,
-            [this](const QModelIndex &i){
-                //m_vm.select(i.row());
-            }
+            &m_viewModel,
+            &ListViewModel::select
         );
 
         connect(

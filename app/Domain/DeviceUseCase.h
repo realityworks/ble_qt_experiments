@@ -48,6 +48,16 @@ public:
         m_store.observe(context, &AppState::devices, handler);
     }
 
+    template <typename Handler>
+    void observeConnectionState(const QObject *context, Handler handler) {
+        m_store.observe(context, &AppState::connectionState, handler);
+    }
+
+    template <typename Handler>
+    void observeBpm(const QObject *context, Handler handler) {
+        m_store.observe(context, &AppState::connectedDeviceBpm, handler);
+    }
+
     // Core usecase functions :
 
     QList<HeartRateDevice> devices() const { return m_store.currentState()->devices; }
@@ -88,16 +98,21 @@ public:
     }
 
     void connectDevice(const QUuid &id) {
+        m_store.update([](AppState &state) {
+            state.connectionState = ConnectionState::Connecting;
+        });
 
         m_deviceService->connectDevice(id).then(
             this,
-            [this](std::optional<HeartRateDevice> connectedDevice) {
-                m_store.update([connectedDevice](AppState &state) {
-                    if (connectedDevice == std::nullopt)
-                        return
+            [this, id](const std::optional<HeartRateDevice> &connectedDevice) {
+                if (connectedDevice == std::nullopt)
+                    return;
 
+                startHeartRateListener(id);
+
+                m_store.update([connectedDevice](AppState &state) {
                     state.connectedDevice = connectedDevice.value().id;
-                    state.scanning = false;
+                    state.connectionState = ConnectionState::Connected;
                 });
             }
         );
@@ -119,6 +134,7 @@ private:
                 store->update([id, bpm](AppState &state) {
                     if (HeartRateDevice *device = findDevice(state, id))
                         device->bpm = bpm;
+                    state.connectedDeviceBpm = bpm;
                 });
             }
         );
